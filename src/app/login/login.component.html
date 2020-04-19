@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-content>
+    <form>
+      <h2>Log In</h2>
+      <mat-form-field>
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          [formControl]="email"
+          required
+        />
+        <mat-error *ngIf="email.invalid">
+          {{ getEmailErrorMessage() }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter your password</mat-label>
+        <input
+          matInput
+          placeholder="My Secret password"
+          [formControl]="password"
+          required
+        />
+        <mat-error *ngIf="password.invalid">
+          {{ getPasswordErrorMessage() }}
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Login</button>
+    </form>
+  </mat-card-content>
+</mat-card>

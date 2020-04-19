@@ -1,0 +1,33 @@
+<div fxFlex fxLayout="column" fxLayoutGap="10px" style="height: 100vh;">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+      #sidenav
+      mode="over"
+      [(opened)]="opened"
+      (closed)="events.push('close!')"
+    >
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="'/dashboard'"> Dashboard </a>
+        <a mat-list-item [routerLink]="'/login'"> Login </a>
+        <a mat-list-item [routerLink]="'/register'"> Register </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content style="height: 100vh;">
+      <mat-toolbar color="primary">
+        <button
+          aria-hidden="false"
+          aria-label="sidebar toogle button"
+          mat-icon-button
+          (click)="sidenav.toggle()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+      </mat-toolbar>
+      <div fxLayout="column">
+        App Content
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
