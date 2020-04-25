@@ -1,7 +1,1 @@
-<ng-container [ngSwitch]="layout">
-  <!-- Alternativerly use the main layout as the default switch case -->
-  <app-main-layout *ngSwitchCase="Layouts.Main"></app-main-layout>
-  <app-centered-content-layout
-    *ngSwitchCase="Layouts.centeredContent"
-  ></app-centered-content-layout>
-</ng-container>
+<router-outlet></router-outlet>

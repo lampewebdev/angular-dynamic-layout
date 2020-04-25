@@ -1,16 +1,17 @@
 <mat-card>
   <mat-card-content>
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <h2>Log In</h2>
       <mat-form-field>
         <mat-label>Enter your email</mat-label>
         <input
           matInput
           placeholder="pat@example.com"
-          [formControl]="email"
+          formControlName="email"
           required
+          type="email"
         />
-        <mat-error *ngIf="email.invalid">
+        <mat-error *ngIf="loginForm.get('email').invalid">
           {{ getEmailErrorMessage() }}
         </mat-error>
       </mat-form-field>
@@ -19,14 +20,17 @@
         <input
           matInput
           placeholder="My Secret password"
-          [formControl]="password"
+          formControlName="password"
           required
+          type="password"
         />
-        <mat-error *ngIf="password.invalid">
+        <mat-error *ngIf="loginForm.get('password').invalid">
           {{ getPasswordErrorMessage() }}
         </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary">Login</button>
+      <button mat-raised-button color="primary" ripple>
+        Login
+      </button>
     </form>
   </mat-card-content>
 </mat-card>
